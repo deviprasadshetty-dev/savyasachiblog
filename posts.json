@@ -1,0 +1,30 @@
+[
+  {
+    "file": "2024-10-01_nepal-leadership.txt",
+    "title": "ರಾಜಕೀಯ ನಾಯಕತ್ವದ ಮಹತ್ವ",
+    "subtitle": "ನೇಪಾಳದ ಅಸ್ಥಿರತೆಯಿಂದ ನಾಂದಿ",
+    "tags": ["politics", "nepal", "india", "kannada"],
+    "date": "2024-10-01"
+  },
+  {
+    "file": "2024-09-20_stargazing-thoughts.txt",
+    "title": "Stargazing Thoughts",
+    "subtitle": "Personal reflections on the cosmos",
+    "tags": ["astronomy", "science", "personal"],
+    "date": "2024-09-20"
+  },
+  {
+    "file": "2024-09-10_ai-in-science.txt",
+    "title": "AI in Science",
+    "subtitle": "How artificial intelligence is revolutionizing discovery",
+    "tags": ["ai", "science", "technology"],
+    "date": "2024-09-10"
+  },
+  {
+    "file": "2024-09-01_quantum-weirdness.txt",
+    "title": "The Quantum Weirdness",
+    "subtitle": "Why reality defies our intuition",
+    "tags": ["quantum", "physics", "science"],
+    "date": "2024-09-01"
+  }
+]

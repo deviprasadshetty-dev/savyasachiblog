@@ -1,0 +1,19 @@
+AI in Science
+How artificial intelligence is revolutionizing discovery
+ai,science,technology
+
+Artificial intelligence is no longer just a tool for chatbots; it's transforming how scientists explore the unknown. In my self-taught journey through science, I've seen AI accelerate research in ways that feel almost magical.
+
+**Machine learning** models can analyze vast datasets, predicting protein structures or simulating climate patterns faster than any human could.
+
+For example, AlphaFold has cracked the code of protein folding, a decades-old problem, enabling breakthroughs in biology and medicine.
+
+But there's a personal side: as an independent learner, AI tools like Jupyter notebooks with Python have allowed me to experiment with data from telescopes or particle colliders without a lab.
+
+*Ethics matter*, though. We must ensure AI in science remains transparent and accessible, not just for big institutions.
+
+[Read about AlphaFold](https://www.deepmind.com/blog/alphafold).
+
+This blend of tech and curiosity drives my writing—exploring how AI empowers individual scientists like me.
+
+> Science is a way of thinking much more than it is a body of knowledge. — Carl Sagan

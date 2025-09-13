@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savyasachi Post</title>
+  <link rel="stylesheet" href="css/reader.css">
+</head>
+<body>
+  <div class="post-reader">
+    <nav class="sticky-nav" role="navigation" aria-label="Post navigation">
+      <button class="back-btn" aria-label="Go back" onclick="history.back()">
+        ← Back
+      </button>
+      <a href="/" class="header-title">SAVYASACHI</a>
+      <button class="share-btn" aria-label="Share this post" title="Copy link to clipboard">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5.42 1.31-.53 1.89-.68.4-1.51.47-2.23.14L10 13.28c.14.24.22.49.22.77s-.08.53-.22.77l6.27 3.67c.72.33 1.55.26 2.23-.14.95-.58 1.07-1.39.53-1.89-.31-.19-.66-.35-1.02-.35zM7 2c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V7.97l-5-5-2.97-2.97H7z"/>
+        </svg>
+      </button>
+    </nav>
+
+    <main role="main">
+      <article class="post-content">
+        <!-- Post content will be loaded here -->
+      </article>
+    </main>
+  </div>
+
+  <script src="js/loader.js"></script>
+  <script>
+    // Init theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.classList.toggle('dark', savedTheme === 'dark');
+
+    // Share functionality
+    const shareBtn = document.querySelector('.share-btn');
+    shareBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(location.href);
+        // Optional: visual feedback, e.g., change icon temporarily
+      } catch (err) {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = location.href;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+    });
+
+    // Load post
+    async function loadPost() {
+      const params = new URLSearchParams(location.search);
+      const file = params.get('file');
+      if (!file) {
+        showError('No post file specified');
+        return;
+      }
+
+      const article = document.querySelector('.post-content');
+      try {
+        const post = await loader.fetchPost(decodeURIComponent(file));
+        article.innerHTML = `
+          <time class="post-date" datetime="${post.date}">${post.date}</time>
+          <h1 class="post-title">${post.title}</h1>
+          ${post.subtitle ? `<p class="post-subtitle">${post.subtitle}</p>` : ''}
+          <hr class="post-hr">
+          <div class="body-content">${post.html}</div>
+          <div class="post-tags">
+            ${post.tags.map(tag => `<span class="post-tag">${tag}</span>`).join('')}
+          </div>
+        `;
+      } catch (error) {
+        showError('Post missing. <a href="/">Return home</a>');
+      }
+    }
+
+    function showError(message) {
+      const article = document.querySelector('.post-content');
+      article.innerHTML = `<div class="error">${message}</div>`;
+    }
+
+    if ('loading' in HTMLImageElement.prototype) {
+      document.addEventListener('DOMContentLoaded', loadPost);
+    } else {
+      window.addEventListener('load', loadPost);
+    }
+  </script>
+</body>
+</html>
