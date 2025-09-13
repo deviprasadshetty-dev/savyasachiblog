@@ -57,10 +57,10 @@
 }
 
 .post-subtitle {
- font-size: 24px;
- margin: 0 0 1.5rem 0;
- color: #fff;
- text-decoration: underline;
+  font-size: 24px;
+  margin: 0 0 1.5rem 0;
+  color: var(--text-color);
+  text-decoration: underline;
 }
 
 .post-hr {
