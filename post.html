@@ -53,15 +53,15 @@
     // Load post
     async function loadPost() {
       const params = new URLSearchParams(location.search);
-      const file = params.get('file');
-      if (!file) {
-        showError('No post file specified');
+      const postId = params.get('post');
+      if (!postId) {
+        showError('No post specified');
         return;
       }
 
       const article = document.querySelector('.post-content');
       try {
-        const post = await loader.fetchPost(decodeURIComponent(file));
+        const post = await loader.fetchPost(`${decodeURIComponent(postId)}.txt`);
         article.innerHTML = `
           <time class="post-date" datetime="${post.date}">${post.date}</time>
           <h1 class="post-title">${post.title}</h1>

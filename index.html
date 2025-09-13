@@ -72,7 +72,7 @@
           </div>
         `;
         card.addEventListener('click', () => {
-          window.location.href = `post.html?file=${encodeURIComponent(post.file)}`;
+          window.location.href = `post.html?post=${encodeURIComponent(post.file.replace('.txt', ''))}`;
         });
         grid.appendChild(card);
         // Staggered fade-in
